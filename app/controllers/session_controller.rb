@@ -9,11 +9,12 @@ class SessionController < ApplicationController
       # Log the user in and redirect to the user's show page.
     else
       # Create an error message.
-      #text: "Invalid email/password"
       render 'new'
     end
   end
 
   def destroy
+    log_out
+    redirect_to root_url
   end
 end
