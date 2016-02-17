@@ -77,7 +77,7 @@ class AdministratorController < ApplicationController
   end
 
   def instructorlist
-    @instructors=User.where("role='instructor'")
+    @users=User.where("role='instructor'")
   end
 
   def newinstructor
