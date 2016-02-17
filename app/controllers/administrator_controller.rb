@@ -31,7 +31,6 @@ class AdministratorController < ApplicationController
       flash[:alert]='Admin creation failed'
       redirect_to url_for( :action => :index)
     end
-
   end
 
   def user_params
@@ -77,9 +76,35 @@ class AdministratorController < ApplicationController
     end
   end
 
-  def instructors
-    @course = Course.find(params[:id])
-    @instructors = @course.users.where("role","instructor")
+  def instructorlist
+    @instructors=User.where("role='instructor'")
+  end
+
+  def newinstructor
+    @user = User.new
+  end
+
+  def createinstructor
+    @user = User.new(user_params)
+    @user.role='instructor'
+    if @user.save
+      flash[:notice]= "New instructor created"
+      redirect_to url_for( :action => :instructorlist)
+    else
+      flash[:alert]="Failed to create instructor"
+      redirect_to url_for( :action => :instructorlist)
+    end
+  end
+
+  def deleteinstructor
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice]='Instructor was deleted'
+      redirect_to url_for( :action => :instructorlist)
+    else
+      flash[:alert]='Instructor deletion failed'
+      redirect_to url_for( :action => :instructorlist)
+    end
   end
 
 end
