@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Remove', {action: "deleteinstructor",id:user} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br/>
+<%= link_to 'Back', controller: "administrator", action: "courseinstructor", id:@course %>

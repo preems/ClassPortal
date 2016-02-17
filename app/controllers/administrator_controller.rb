@@ -110,4 +110,9 @@ class AdministratorController < ApplicationController
     end
   end
 
+  def courseinstructor
+    @course = Course.find(params[:id])
+    @instructors = Course.users
+  end
+
 end

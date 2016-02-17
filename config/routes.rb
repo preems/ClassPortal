@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post 'administrator/createcourse' =>'administrator#createcourse'
   get 'administrator/editcourse' =>'administrator#editcourse'
   get 'administrator/deletecourse' =>'administrator#deletecourse'
+  get 'administrator/courseinstructor/:id' =>'administrator#courseinstructor'
   # Admin instructor
   get 'administrator/instructorlist' =>'administrator#instructorlist'
   get 'administrator/newinstructor' =>'administrator#newinstructor'
