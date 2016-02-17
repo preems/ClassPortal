@@ -22,4 +22,9 @@ td,th {
     border: solid 1px black;
     border-collapse: collapse;
     padding:5px;
+    min-width: 100px;
+}
+
+a{
+    text-decoration: underline;
 }

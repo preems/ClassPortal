@@ -9,13 +9,17 @@ Rails.application.routes.draw do
   delete 'logout' => 'session#destroy'
   get 'signup' => 'users#new'
 
+  # Admin routes
   get 'administrator' => 'administrator#index'
   get 'administrator/new' => 'administrator#new'
   post 'administrator/create' => 'administrator#create'
   get 'administrator/delete/:id' => 'administrator#delete'
+  # Admin Course routes
   get 'administrator/courselist' =>'administrator#courselist'
   get 'administrator/newcourse' =>'administrator#newcourse'
-  get 'administrator/createcourse' =>'administrator#createcourse'
+  post 'administrator/createcourse' =>'administrator#createcourse'
+  get 'administrator/editcourse' =>'administrator#editcourse'
+  get 'administrator/deletecourse' =>'administrator#deletecourse'
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
