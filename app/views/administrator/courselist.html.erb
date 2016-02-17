@@ -22,7 +22,7 @@
         <td><%= course.startDate %></td>
         <td><%= course.endDate %></td>
         <td><%= course.status %></td>
-        <td><%= link_to 'Instructors', {action: 'instructors', id:course}  %></td>
+        <td><%= link_to 'Instructors', {action: 'instructorslist', id:course}  %></td>
         <td><%= link_to 'Edit', {action: "editcourse",id:course} %></td>
         <td><%= link_to 'Delete', {action: "deletecourse",id:course} %></td>
       </tr>
