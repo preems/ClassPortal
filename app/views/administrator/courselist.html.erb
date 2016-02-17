@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+<table>
+  <thead>
+  <tr>
+    <th>Number</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>StartDate</th>
+    <th>EndDate</th>
+    <th>Status</th>
+    <th>Manage Instructors</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @courses.each do |course| %>
+      <tr>
+        <td><%= link_to course.number,{action:"editcourse",id:course} %></td>
+        <td><%= course.title %></td>
+        <td><%= course.desc %></td>
+        <td><%= course.startDate %></td>
+        <td><%= course.endDate %></td>
+        <td><%= course.status %></td>
+        <td><%= link_to 'Instructors', {action: 'instructors', id:course}  %></td>
+        <td><%= link_to 'Edit', {action: "editcourse",id:course} %></td>
+        <td><%= link_to 'Delete', {action: "deletecourse",id:course} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br/>
+<%= link_to 'New Course', controller: "administrator", action: "newcourse" %>
