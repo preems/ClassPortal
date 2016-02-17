@@ -8,6 +8,7 @@ class AdministratorController < ApplicationController
 
   def new
     @user = User.new
+    @action = 'create'
   end
 
   def create
@@ -48,6 +49,7 @@ class AdministratorController < ApplicationController
 
   def newcourse
     @course = Course.new
+    @action = 'create'
   end
 
   def createcourse
@@ -82,6 +84,7 @@ class AdministratorController < ApplicationController
 
   def newinstructor
     @user = User.new
+    @action = 'createinstructor'
   end
 
   def createinstructor

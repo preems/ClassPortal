@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'administrator/instructorlist' =>'administrator#instructorlist'
   get 'administrator/newinstructor' =>'administrator#newinstructor'
   post 'administrator/createinstructor' => 'administrator#createinstructor'
+  get 'administrator/deleteinstructor/:id' => 'administrator#deleteinstructor'
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
