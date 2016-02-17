@@ -78,7 +78,8 @@ class AdministratorController < ApplicationController
   end
 
   def instructors
-    #@instructors =
+    @course = Course.find(params[:id])
+    @instructors = @course.users.where("role","instructor")
   end
 
 end
