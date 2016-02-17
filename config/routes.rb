@@ -8,6 +8,15 @@ Rails.application.routes.draw do
   post 'login' => 'session#create'
   delete 'logout' => 'session#destroy'
   get 'signup' => 'users#new'
+
+  get 'administrator' => 'administrator#index'
+  get 'administrator/new' => 'administrator#new'
+  post 'administrator/create' => 'administrator#create'
+  get 'administrator/delete/:id' => 'administrator#delete'
+  get 'administrator/courselist' =>'administrator#courselist'
+  get 'administrator/newcourse' =>'administrator#newcourse'
+  get 'administrator/createcourse' =>'administrator#createcourse'
+
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

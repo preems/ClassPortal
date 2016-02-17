@@ -3,22 +3,23 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
-  def hello
-    render text: "hello, world!"
-  end
+  #def hello
+  #  render text: "hello, world!"
+  #end
 
-  def index
-    @users = User.all
-  end
+  #def index
+  #  @users = User.all
+  #end
 
   # GET /users/1
   # GET /users/1.json
-  def show
-    #@user=User.find(params[:id])
-  end
+  #def show
+  #  #@user=User.find(params[:id])
+  #end
 
   # GET /users/new
   def new
+    #if logged in redirect to default page here.
     @user = User.new
   end
 
@@ -30,6 +31,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.role='user'
 
     respond_to do |format|
       if @user.save
@@ -59,13 +61,13 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @user.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -75,6 +77,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :role)
+      params.require(:user).permit(:name, :email, :password)
     end
 end
