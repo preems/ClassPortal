@@ -1,0 +1,32 @@
+<h4>Select a user to send message</h4>
+
+<table>
+  <thead>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Email
+    </th>
+  </tr>
+  </thead>
+
+
+<tbody>
+<% @contacts.each do |c| %>
+    <% if @current_user.id!=c.id %>
+  <tr>
+    <td>
+
+      <%=  link_to c.name,{action: 'chatwindow', id:c} %>
+
+      </td>
+    <td>
+      <%= c.email %>
+    </td>
+  </tr>
+    <% end %>
+<% end %>
+  </tbody>
+</table>

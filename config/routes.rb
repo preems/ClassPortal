@@ -56,6 +56,13 @@ Rails.application.routes.draw do
   #enrollments
   get 'requests' => 'instructor#requests'
   get 'instructor/enroll/:user_id/:course_id'=> 'instructor#enroll'
+
+
+  # Messages
+  get 'message' => 'message#index'
+  get 'message/chatwindow/:id' => 'message#chatwindow'
+  post 'message/chatwindow/:id' => 'message#chatwindowsend'
+
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

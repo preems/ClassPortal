@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
+<h2><%= @course.title %> </h2>
 
 <p><b>Number:</b></p>
 <p><%= @course.number %></p>
@@ -30,6 +31,10 @@
 <% end %>
 <br/>
 <h4><u>Notifications</u></h4>
+
+<% if @notifications.empty? %>
+      <p>No notifications posted by instructor</p>
+<% end %>
 <% @notifications.each do |noti| %>
   <p><b>Message: </b><%= noti.message  %>  </p>
 <% end %>

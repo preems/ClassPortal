@@ -9,6 +9,7 @@
           <li> <%= link_to "Search", course_path%> </li>
           <li> <%= link_to "My Courses", mycourses_path%> </li>
           <li> <%= link_to "Course History", mycourses_path%> </li>
+          <li> <%= link_to "Messages", message_path%> </li>
 
 
         <% elsif @role=="admin"%>
@@ -16,11 +17,13 @@
           <li> <%= link_to "Manage Instructors", {controller: "administrator" ,action:"instructorlist"}%> </li>
           <li> <%= link_to "Manage Students", {controller: "administrator" ,action:"studentlist"}%> </li>
           <li> <%= link_to "Manage Courses", {controller: "administrator" ,action:"courselist"}%> </li>
+          <li> <%= link_to "Messages", message_path%> </li>
 
 
         <% elsif @role=="instructor" %>
           <li> <%= link_to "Enrollment requests", requests_path%> </li>
           <li> <%= link_to "Courses", "#"%> </li>
+          <li> <%= link_to "Messages", message_path%> </li>
 
         <% end%>
 

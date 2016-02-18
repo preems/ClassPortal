@@ -1,0 +1,21 @@
+<% if @messages.empty? %>
+    <p>No previous messages. Start a chat.</p>
+<% end %>
+<% @messages.each do |m| %>
+    <p><b><%= @names[m.from]+": " %></b>
+    <%= m.text %></p>
+    <br/>
+
+<% end %>
+<br/><br/>
+<%= form_tag("",method: 'post') do %>
+    <div class="field">
+      <label for="">Send a message:</label><br>
+      <input class="form-control" type="text" name="message" id="message" />
+    </div>
+    <div class="actions">
+      <input type="submit" name="commit" value="Send" class="btn btn-primary" />
+    </div>
+<% end %>
+<br/>
+<%= link_to 'Back', :back %>
