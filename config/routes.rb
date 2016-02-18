@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   #course routes
   get 'course' => 'course#index'
   get 'mycourses' => 'course#mycourse'
+  get 'course/studentcoursedrop/:id' => 'course#studentcoursedrop'
 
   #enrollments
   get 'requests' => 'instructor#requests'

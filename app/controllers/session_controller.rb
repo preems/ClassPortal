@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
   def new
+
   end
   def create
     user = User.find_by(email: params[:session][:email].downcase)
@@ -12,12 +13,13 @@ class SessionController < ApplicationController
       elsif user.role == 'instructor'
         redirect_to instructor_path
       else
-        redirect_to user
+        redirect_to  action: 'mycourse', controller: 'course'
       end
       # Log the user in and redirect to the user's show page.
     else
       # Create an error message.
-      render 'new'
+      flash[:alert]="Login unsuccessful. Please try again"
+      redirect_to url_for( :action => :new)
     end
   end
 

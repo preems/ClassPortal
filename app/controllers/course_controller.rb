@@ -32,4 +32,11 @@ class CourseController < ApplicationController
       @pending=courses_users.count
   end
 
+  def studentcoursedrop
+    @course = Course.find(params[:id])
+    current_user
+    @current_user.courses.delete(@course)
+    redirect_to url_for(:action => :mycourse)
+  end
+
 end
