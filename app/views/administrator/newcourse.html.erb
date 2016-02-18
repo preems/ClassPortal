@@ -33,7 +33,7 @@
     </div>
     <div class="field">
       <%= f.label :status %><br>
-      <%= f.text_field :status,class: 'form-control' %>
+      <%= f.select :status,options_for_select(['active','inactive']),class:'form-control' %>
     </div>
     <div class="actions">
       <%= f.submit :submit ,class:"btn btn-primary" %>
