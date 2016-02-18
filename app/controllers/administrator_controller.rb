@@ -4,6 +4,8 @@ class AdministratorController < ApplicationController
 
   def index
     @users = User.where("role='admin'")
+    current_user
+    @currentuserid = @current_user.id
   end
 
   def new

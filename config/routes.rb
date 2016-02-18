@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   post 'administrator/createstudent' => 'administrator#createstudent'
   get 'administrator/deletestudent/:id' => 'administrator#deletestudent'
 
+  # Course Page
+  get 'course/coursepage/:id' => 'course#coursepage'
+  post 'course/coursepage/:id' => 'course#coursenotificationadd'
 
   #Instructor routes
   get 'instructor' => 'instructor#index'

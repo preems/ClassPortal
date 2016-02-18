@@ -27,10 +27,9 @@
           <input type="submit" name="commit" value="submit" class="btn btn-primary" />
         </div>
     <% end %>
-
-    <h4>Notifications</h4>
-
 <% end %>
+<br/>
+<h4><u>Notifications</u></h4>
 <% @notifications.each do |noti| %>
   <p><b>Message: </b><%= noti.message  %>  </p>
 <% end %>

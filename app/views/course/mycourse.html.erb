@@ -4,7 +4,7 @@
   <% @course.each do |course| %>
     <div class="course">
       <tr>
-        <td><%= course.number %></td>
+        <td><%= link_to course.number,{controller: 'course', action: 'coursepage', id:course} %></td>
         <td><%= course.desc %></td>
         <td><%= course.status %></td>
         <td><%= course.title %></td>
