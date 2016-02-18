@@ -17,7 +17,7 @@
   <tbody>
   <% @courses.each do |course| %>
       <tr>
-        <td><%= link_to course.number,{action:"editcourse",id:course} %></td>
+        <td><%= link_to course.number,{controller: "course", action:"coursepage",id:course} %></td>
         <td><%= course.title %></td>
         <td><%= course.desc %></td>
         <td><%= course.startDate %></td>
@@ -25,8 +25,8 @@
         <td><%= course.status %></td>
         <td><%= link_to 'Instructors', {action: 'courseinstructor', id:course}  %></td>
         <td><%= link_to 'Students', {action: 'coursestudent', id:course}  %></td>
-        <td><%= link_to 'Edit', {action: "editcourse",id:course} %></td>
-        <td><%= link_to 'Delete', {action: "deletecourse",id:course} %></td>
+        <td><%= link_to 'Edit', {action: 'editcourse',id:course} %></td>
+        <td><%= link_to 'Delete', {action: 'deletecourse',id:course} %></td>
       </tr>
   <% end %>
   </tbody>

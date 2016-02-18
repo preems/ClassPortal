@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160218085330) do
+=======
+ActiveRecord::Schema.define(version: 20160218090518) do
+>>>>>>> f67364483437a18eed8d721b03600a7ac8a612ba
 
   create_table "courses", force: :cascade do |t|
     t.string   "number"
@@ -34,15 +38,22 @@ ActiveRecord::Schema.define(version: 20160218085330) do
   add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id"
   add_index "courses_users", ["user_id"], name: "index_courses_users_on_user_id"
 
+<<<<<<< HEAD
   create_table "enrollments", force: :cascade do |t|
     t.integer  "course_id"
     t.integer  "user_id"
     t.string   "status"
     t.string   "grade"
+=======
+  create_table "notifications", force: :cascade do |t|
+    t.string   "message"
+    t.integer  "course_id"
+>>>>>>> f67364483437a18eed8d721b03600a7ac8a612ba
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id"
   add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id"
 
@@ -56,6 +67,9 @@ ActiveRecord::Schema.define(version: 20160218085330) do
 
   add_index "requests", ["course_id"], name: "index_requests_on_course_id"
   add_index "requests", ["user_id"], name: "index_requests_on_user_id"
+=======
+  add_index "notifications", ["course_id"], name: "index_notifications_on_course_id"
+>>>>>>> f67364483437a18eed8d721b03600a7ac8a612ba
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
