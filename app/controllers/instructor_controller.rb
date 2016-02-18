@@ -21,6 +21,8 @@ class InstructorController < ApplicationController
     one=User.find(a)
     two=Course.find(b)
     one.courses << two
-    @byebye= Request.where("course_id = ? AND user_id = ?", b, a)
-
+    #@byebye= Request.where("course_id = ? AND user_id = ?", b, a)
+    Request.where(course_id:b,user_id:a).first.destroy
+    redirect_to requests_path
+  end
 end
