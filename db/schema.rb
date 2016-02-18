@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20160218070038) do
   create_table "courses_users", id: false, force: :cascade do |t|
     t.integer "course_id"
     t.integer "user_id"
+    t.string  "status"
+    t.string  "grade"
   end
 
   add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id"
@@ -39,8 +41,6 @@ ActiveRecord::Schema.define(version: 20160218070038) do
     t.string   "role"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "status"
-    t.string   "grade"
   end
 
 end
