@@ -1,13 +1,22 @@
 <body>
   <% if @course %>
   <table>
+    <thead>
+    <tr>
+      <th>Number</th>
+      <th>Title</th>
+      <th>Desciption</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+    </thead
   <% @course.each do |course| %>
     <div class="course">
       <tr>
         <td><%= link_to course.number,{controller: 'course', action: 'coursepage', id:course} %></td>
+        <td><%= course.title %></td>
         <td><%= course.desc %></td>
         <td><%= course.status %></td>
-        <td><%= course.title %></td>
         <td><%= link_to 'Drop', "#" %></td>
       </tr>
     </div>
