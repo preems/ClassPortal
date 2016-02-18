@@ -13,7 +13,7 @@
         <% elsif @role=="admin" %>
           <li> <%= link_to "Manage Admins", administrator_path%> </li>
           <li> <%= link_to "Manage Instructors", {controller: "administrator" ,action:"instructorlist"}%> </li>
-          <li> <%= link_to "Manage Students", {controller: "administrator" ,action:"courselist"}%> </li>
+          <li> <%= link_to "Manage Students", {controller: "administrator" ,action:"studentlist"}%> </li>
           <li> <%= link_to "Manage Courses", {controller: "administrator" ,action:"courselist"}%> </li>
 
 

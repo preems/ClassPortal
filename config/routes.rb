@@ -27,6 +27,13 @@ Rails.application.routes.draw do
   post 'administrator/createinstructor' => 'administrator#createinstructor'
   get 'administrator/deleteinstructor/:id' => 'administrator#deleteinstructor'
 
+  # Admin student
+  get 'administrator/studentlist' =>'administrator#studentlist'
+  get 'administrator/newstudent' =>'administrator#newstudent'
+  post 'administrator/createstudent' => 'administrator#createstudent'
+  get 'administrator/deletestudent/:id' => 'administrator#deletestudent'
+
+
   #Instructor routes
   get 'instructor' => 'instructor#index'
 

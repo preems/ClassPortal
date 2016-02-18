@@ -82,10 +82,20 @@ class AdministratorController < ApplicationController
     @users=User.where("role='instructor'")
   end
 
+  def studentlist
+    @users=User.where("role='student'")
+  end
+
   def newinstructor
     @user = User.new
     @action = 'createinstructor'
   end
+
+  def newstudent
+    @user = User.new
+    @action = 'createstudent'
+  end
+
 
   def createinstructor
     @user = User.new(user_params)
@@ -113,6 +123,29 @@ class AdministratorController < ApplicationController
   def courseinstructor
     @course = Course.find(params[:id])
     @instructors = Course.users
+  end
+
+  def createstudent
+    @user = User.new(user_params)
+    @user.role='student'
+    if @user.save
+      flash[:notice]= "New student created"
+      redirect_to url_for( :action => :studentlist)
+    else
+      flash[:alert]="Failed to create student"
+      redirect_to url_for( :action => :studentlist)
+    end
+  end
+
+  def deletestudent
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice]='Student was deleted'
+      redirect_to url_for( :action => :studentlist)
+    else
+      flash[:alert]='Student deletion failed'
+      redirect_to url_for( :action => :studentlist)
+    end
   end
 
 end
