@@ -17,7 +17,7 @@
   <tbody>
   <% @courses.each do |course| %>
       <tr>
-        <td><%= link_to course.number,{action:"editcourse",id:course} %></td>
+        <td><%= link_to course.number,{controller: "course", action:"coursepage",id:course} %></td>
         <td><%= course.title %></td>
         <td><%= course.desc %></td>
         <td><%= course.startDate %></td>

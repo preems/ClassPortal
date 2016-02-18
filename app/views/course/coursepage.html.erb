@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+
+<p><b>Number:</b></p>
+<p><%= @course.number %></p>
+<p><b>Title:</b></p>
+<p><%= @course.title %></p>
+<p><b>Description:</b></p>
+<p><%= @course.desc %></p>
+<p><b>Start Date:</b></p>
+<p><%= @course.startDate %></p>
+<p><b>End Date:</b></p>
+<p><%= @course.endDate %></p>
+<p><b>Status:</b></p>
+<p><%= @course.status %></p>
+
+
+
+<% if @role!="student" %>
+
+    <%= form_tag("",method: 'post') do %>
+        <div class="field">
+          <label for="">Post a Notification:</label><br>
+          <input class="form-control" type="text" name="message" id="email" />
+        </div>
+        <div class="actions">
+          <input type="submit" name="commit" value="submit" class="btn btn-primary" />
+        </div>
+    <% end %>
+
+    <h4>Notifications</h4>
+
+<% end %>
+<% @notifications.each do |noti| %>
+  <p><b>Message: </b><%= noti.message  %>  </p>
+<% end %>
