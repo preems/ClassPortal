@@ -1,5 +1,4 @@
 class Course < ActiveRecord::Base
-  attr_accessor :title
   has_and_belongs_to_many :users
 
 
