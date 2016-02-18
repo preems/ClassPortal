@@ -27,4 +27,10 @@
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%if @role=='instructor'%>
+  <%= link_to 'Back', instructor %>
+<% elsif @role=='admin'%>
+  <%= link_to 'Back', administrator_path %>
+<% else %>
+  <%= link_to 'Back', user_path %>
+<%end%>

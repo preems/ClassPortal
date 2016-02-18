@@ -4,24 +4,31 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
         <% if logged_in? %>
-        <% if @role=="user" %>
+        <% if @role=="student" %>
           <li> <%= link_to "Search", "#"%> </li>
+          <li> <%= link_to "My Courses", "#"%> </li>
+
 
         <% elsif @role=="admin" %>
           <li> <%= link_to "Manage Admins", administrator_path%> </li>
           <li> <%= link_to "Manage Instructors", {controller: "administrator" ,action:"instructorlist"}%> </li>
           <li> <%= link_to "Manage Courses", {controller: "administrator" ,action:"courselist"}%> </li>
+
+        <% elsif @role=="instructor" %>
+          <li> <%= link_to "Enrollment requests", "#"%> </li>
+          <li> <%= link_to "View Course Page", "#"%> </li>
+
         <% end%>
 
-          
+        <li><%= link_to "Help", help_path %></li>
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Profile", @current_user %></li>
               <li><%= link_to "Settings", '#' %></li>
               <li class="divider"></li>
               <li>

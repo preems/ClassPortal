@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   post 'administrator/createinstructor' => 'administrator#createinstructor'
   get 'administrator/deleteinstructor/:id' => 'administrator#deleteinstructor'
 
+  #Instructor routes
+  get 'instructor' => 'instructor#index'
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
