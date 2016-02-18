@@ -10,6 +10,7 @@
     <th>EndDate</th>
     <th>Status</th>
     <th>Manage Instructors</th>
+    <th>Manage Students</th>
     <th colspan="2"></th>
   </tr>
   </thead>
@@ -23,6 +24,7 @@
         <td><%= course.endDate %></td>
         <td><%= course.status %></td>
         <td><%= link_to 'Instructors', {action: 'courseinstructor', id:course}  %></td>
+        <td><%= link_to 'Students', {action: 'coursestudent', id:course}  %></td>
         <td><%= link_to 'Edit', {action: "editcourse",id:course} %></td>
         <td><%= link_to 'Delete', {action: "deletecourse",id:course} %></td>
       </tr>
