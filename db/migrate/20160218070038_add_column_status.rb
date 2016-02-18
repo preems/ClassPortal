@@ -1,6 +1,6 @@
 class AddColumnStatus < ActiveRecord::Migration
   def change
-     add_column :courses_users, :status, :string
-     add_column :courses_users, :grade, :string
+     remove_column :courses_users, :status, :string
+     remove_column :courses_users, :grade, :string
   end
 end

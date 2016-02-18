@@ -1,0 +1,21 @@
+<body>
+  <%=@current_user.courses%>
+  <% if @pending %>
+  <table>
+  <% @pending.each do |c| %>
+    <div class="course">
+      <tr>
+        <td><%= c.status %></td>
+        <% a=User.find_by id: c.user_id%>
+        <td><%= a.name %></td>
+        <% b=Course.find_by id: c.course_id%>
+        <td><%= b.title %></td>
+        <td><%= link_to 'Enroll', {controller: "instructor",action: "enroll", a: a , b: b} %></td>
+      </tr>
+    </div>
+  <% end %>
+  </table>
+  <%else%>
+  <%= "No pending requests"%>
+  <% end%>
+</body>

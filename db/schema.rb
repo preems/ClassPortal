@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218070038) do
+ActiveRecord::Schema.define(version: 20160218085330) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "number"
@@ -33,6 +33,29 @@ ActiveRecord::Schema.define(version: 20160218070038) do
 
   add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id"
   add_index "courses_users", ["user_id"], name: "index_courses_users_on_user_id"
+
+  create_table "enrollments", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.string   "status"
+    t.string   "grade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id"
+  add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id"
+
+  create_table "requests", force: :cascade do |t|
+    t.string   "status"
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "requests", ["course_id"], name: "index_requests_on_course_id"
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

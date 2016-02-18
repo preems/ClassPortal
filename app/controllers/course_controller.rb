@@ -13,9 +13,4 @@ def mycourse
     @course = @current_user.courses
 end
 
-def requests
-
-    @pending=courses_users.count
-end
-
 end
