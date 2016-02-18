@@ -11,5 +11,11 @@ class CourseController < ApplicationController
 def mycourse
     current_user
     @course = @current_user.courses
-  end
+end
+
+def requests
+
+    @pending=courses_users.count
+end
+
 end
