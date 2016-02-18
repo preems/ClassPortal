@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   get 'administrator/courselist' =>'administrator#courselist'
   get 'administrator/newcourse' =>'administrator#newcourse'
   post 'administrator/createcourse' =>'administrator#createcourse'
-  get 'administrator/editcourse' =>'administrator#editcourse'
-  get 'administrator/deletecourse' =>'administrator#deletecourse'
+  get 'administrator/editcourse/:id' =>'administrator#editcourse'
+  get 'administrator/deletecourse/:id' =>'administrator#deletecourse'
+  post 'administrator/updatecourse' =>'administrator#updatecourse'
   # Admin Instructor Student
   get 'administrator/courseinstructor/:id' =>'administrator#courseinstructor'
   post 'administrator/courseinstructor/:id' =>'administrator#courseinstructoradd'

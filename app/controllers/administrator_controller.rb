@@ -49,7 +49,7 @@ class AdministratorController < ApplicationController
 
   def newcourse
     @course = Course.new
-    @action = 'create'
+    @action = 'createcourse'
   end
 
   def createcourse
@@ -63,8 +63,20 @@ class AdministratorController < ApplicationController
     end
   end
 
-  def editcourse
+  def updatecourse
+    @course = Course.find(params[:id])
+    if @course.update(course_params)
+      flash[:notice]= "Course updated"
+      redirect_to url_for( :action => :courselist)
+    else
+      flash[:alert]="Failed to update Course"
+      redirect_to url_for( :action => :courselist)
+    end
+  end
 
+  def editcourse
+    @course = Course.find(params[:id])
+    @action = 'updatecourse'
   end
 
   def deletecourse
