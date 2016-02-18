@@ -122,7 +122,52 @@ class AdministratorController < ApplicationController
 
   def courseinstructor
     @course = Course.find(params[:id])
-    @instructors = Course.users
+    @instructors = @course.users.where("role = ?", 'instructor')
+  end
+
+  def courseinstructoradd
+    @course = Course.find(params[:id])
+    @user = User.find_by_email_and_role(params[:email],'instructor')
+    if @user.nil?
+      flash[:alert]='Instructor was not found'
+      redirect_to url_for( :action => :courseinstructor, id: @course)
+    else
+      @course.users << @user
+      flash[:notice]='Instructor was added'
+      redirect_to url_for( :action => :courseinstructor, id: @course)
+    end
+  end
+
+  def courseinstructordelete
+    @course = Course.find(params[:courseid])
+    @instructor = User.find(params[:instructorid])
+    @course.users.delete(@instructor)
+    redirect_to url_for( :action => :courseinstructor, id: @course)
+  end
+
+  def coursestudent
+    @course = Course.find(params[:id])
+    @users = @course.users.where("role = ?", 'student')
+  end
+
+  def coursestudentadd
+    @course = Course.find(params[:id])
+    @user = User.find_by_email_and_role(params[:email],'student')
+    if @user.nil?
+      flash[:alert]='Student was not found'
+      redirect_to url_for( :action => :coursestudent, id: @course)
+    else
+      @course.users << @user
+      flash[:notice]='Student was added'
+      redirect_to url_for( :action => :coursestudent, id: @course)
+    end
+  end
+
+  def coursestudentdelete
+    @course = Course.find(params[:courseid])
+    @user = User.find(params[:studentid])
+    @course.users.delete(@user)
+    redirect_to url_for( :action => :coursestudent, id: @course)
   end
 
   def createstudent

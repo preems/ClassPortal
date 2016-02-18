@@ -9,11 +9,11 @@
   </tr>
   </thead>
   <tbody>
-  <% @instructors.each do |user| %>
+  <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Remove', {action: "courseinstructordelete",courseid:@course, instructorid:user} %></td>
+        <td><%= link_to 'Remove', {action: "coursestudentdelete",courseid:@course, studentid:user} %></td>
       </tr>
   <% end %>
   </tbody>
@@ -23,13 +23,13 @@
 
 
 
-<h6>Add instructor</h6>
+<h6>Add Student</h6>
 <%= form_tag("",method: 'post') do %>
-  <div class="field">
-    <label for="">Email:</label><br>
-    <input class="form-control" type="text" name="email" id="email" />
-  </div>
-  <div class="actions">
-    <input type="submit" name="commit" value="submit" class="btn btn-primary" />
-  </div>
+    <div class="field">
+      <label for="">Email:</label><br>
+      <input class="form-control" type="text" name="email" id="email" />
+    </div>
+    <div class="actions">
+      <input type="submit" name="commit" value="submit" class="btn btn-primary" />
+    </div>
 <% end %>
