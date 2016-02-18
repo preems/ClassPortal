@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
   #enrollments
   get 'requests' => 'instructor#requests'
-  get ''=> 'instructor#enroll'
+  get 'instructor/enroll/:user_id/:course_id'=> 'instructor#enroll'
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

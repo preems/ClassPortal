@@ -10,7 +10,7 @@
         <td><%= a.name %></td>
         <% b=Course.find_by id: c.course_id%>
         <td><%= b.title %></td>
-        <td><%= link_to 'Enroll', {controller: "instructor",action: "enroll", a: a , b: b} %></td>
+        <td><%= link_to 'Enroll', {controller: "instructor",action: "enroll", course_id: b , user_id: a} %></td>
       </tr>
     </div>
   <% end %>

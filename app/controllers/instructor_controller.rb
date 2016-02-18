@@ -16,8 +16,11 @@ class InstructorController < ApplicationController
 
 
   def enroll
-    a.courses << b
-    #@byebye= Request.find_by course_id: b.course_id and user_id: a.user_id
-    #@byebye.destroy
-  end
+    a=params[:user_id]
+    b=params[:course_id]
+    one=User.find(a)
+    two=Course.find(b)
+    one.courses << two
+    @byebye= Request.where("course_id = ? AND user_id = ?", b, a)
+
 end
