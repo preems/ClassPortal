@@ -6,7 +6,6 @@ class SessionController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       if user.role=='superadmin'
-        user=@current_user
         redirect_to administrator_path
       elsif user.role == 'admin'
         redirect_to administrator_path

@@ -7,4 +7,9 @@ class CourseController < ApplicationController
       @course = Course.search("zzz")
     end
   end
+
+def mycourse
+    current_user
+    @course = @current_user.courses
+  end
 end

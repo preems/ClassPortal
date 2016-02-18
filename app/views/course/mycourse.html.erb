@@ -1,0 +1,19 @@
+<body>
+  <% if @course %>
+  <table>
+  <% @course.each do |course| %>
+    <div class="course">
+      <tr>
+        <td><%= course.number %></td>
+        <td><%= course.desc %></td>
+        <td><%= course.status %></td>
+        <td><%= course.title %></td>
+        <td><%= link_to 'Drop', "#" %></td>
+      </tr>
+    </div>
+  <% end %>
+  </table>
+  <%else%>
+  <%= "No courses enrolled yet"%>
+  <% end%>
+</body>
