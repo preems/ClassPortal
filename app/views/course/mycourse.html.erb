@@ -7,7 +7,8 @@
       <th>Title</th>
       <th>Desciption</th>
       <th>Status</th>
-      <th></th>
+      <th>Grades</th>
+      <th>Requests</th>
     </tr>
     </thead
   <% @course.each do |course| %>
@@ -17,8 +18,17 @@
         <td><%= course.title %></td>
         <td><%= course.desc %></td>
         <td><%= course.status %></td>
+        <%if @role=="student"%>
         <td><%= link_to 'Drop', {action: 'studentcoursedrop', id:course} %></td>
+        <%elsif @role=="instructor"%>
+        <td><%= link_to 'Post Grades', "#" %></td>
+        <%end%>
+        <%if course.inactive==0%>
+        <td><%= link_to 'Request Inactive', {controller: 'instructor', action: 'requestinactive', id:course} %></td>
+        <%else%>
+        <td><%=  'Already Requested' %></td>
 
+        <%end%>
       </tr>
     </div>
   <% end %>

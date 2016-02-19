@@ -22,7 +22,7 @@
 
         <% elsif @role=="instructor" %>
           <li> <%= link_to "Enrollment requests", requests_path%> </li>
-          <li> <%= link_to "Courses", "#"%> </li>
+          <li> <%= link_to "Courses", mycourses_path%> </li>
           <li> <%= link_to "Messages", message_path%> </li>
         <% end%>
 
