@@ -1,3 +1,5 @@
+
+<h1>Create new Course</h1>
 <%= form_for @course, :url =>  url_for(:action => @action),method: :post do |f| %>
    <p id="notice"><b><%= notice %></b></p>
    <p id="alert"><b><%= alert %></b></p>
@@ -27,11 +29,11 @@
       <%= f.text_field :desc ,class: 'form-control'%>
     </div>
     <div class="field">
-      <%= f.label :startDate %><br>
+      <%= f.label 'Start Date (YYYY-MM-DD)' %><br>
       <%= f.text_field :startDate ,class: 'form-control' %>
     </div>
     <div class="field">
-      <%= f.label :endDate %><br>
+      <%= f.label 'End Date (YYYY-MM-DD)' %><br>
       <%= f.text_field :endDate ,class: 'form-control' %>
     </div>
     <div class="field">

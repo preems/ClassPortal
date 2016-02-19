@@ -28,12 +28,9 @@
     <%= link_to 'Back', mycourses_path %>
     <% end %>
 
-
-
-<h6>Add Student</h6>
 <%= form_tag("",method: 'post') do %>
     <div class="field">
-      <label for="">Email:</label><br>
+      <label for="">Add Student by Email:</label><br>
       <input class="form-control" type="text" name="email" id="email" />
     </div>
     <div class="actions">

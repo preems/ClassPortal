@@ -26,11 +26,9 @@
 <%= link_to 'Back', controller: "administrator", action: "courselist", id:@course %>
 
 
-
-<h6>Add instructor</h6>
 <%= form_tag("",method: 'post') do %>
   <div class="field">
-    <label for="">Email:</label><br>
+    <label for="">Add instructor by Email:</label><br>
     <input class="form-control" type="text" name="email" id="email" />
   </div>
   <div class="actions">
