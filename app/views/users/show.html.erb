@@ -7,30 +7,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @user.name %>
+  <strong>Welcome </strong>
+<strong>  <%= @user.name %> </strong>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <strong>The registered email id is:</strong>
+<strong>  <%= @user.email %></strong>
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
+  <strong>Thank you for signing up!</strong></br>
+  <strong>Login and get going!</strong>
 </p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @user.role %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%if @role=='instructor'%>
-  <%= link_to 'Back', instructor %>
-<% elsif @role=='admin'%>
-  <%= link_to 'Back', administrator_path %>
-<% else %>
-  <%= link_to 'Back', user_path %>
-<%end%>
+<%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
