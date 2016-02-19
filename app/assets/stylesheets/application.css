@@ -19,7 +19,7 @@
 }
 
 
-a, a:visited{
+a, a:visited,a:active{
     color:#cc0000
 }
 
@@ -39,8 +39,8 @@ a:hover {
 }
 
 .btn-primary:active {
-    background-color: #ee0000;
-    border-color: #ee0000;
+    background-color: #cc0000;
+    border-color: #cc0000;
 }
 
 a{
