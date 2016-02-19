@@ -186,6 +186,35 @@ class AdministratorController < ApplicationController
     redirect_to url_for( :action => :coursestudent, id: @course)
   end
 
+  def coursestudentgrade
+    #fetch and show the grade
+    @courseid=params[:courseid]
+    g=Grade.where(course_id: params[:courseid], user_id:params[:studentid])
+    if (!g.empty?)
+      @grade =g.first.grade
+    else
+      @grade=""
+  end
+  end
+
+  def coursestudentgradeupdate
+    @courseid=params[:courseid]
+    @studentid = params[:studentid]
+
+    g=Grade.where(course_id: params[:courseid], user_id:params[:studentid]).first()
+    if (g.nil?)
+      grade=Grade.new
+      grade.course_id = params[:courseid]
+      grade.user_id = params[:studentid]
+      grade.grade=params[:grade1]
+      grade.save
+    else
+      g.update_attribute(:grade,params[:grade1])
+    end
+    redirect_to url_for(:action =>:coursestudent, id:params[:courseid])
+
+  end
+
   def createstudent
     @user = User.new(user_params)
     @user.role='student'

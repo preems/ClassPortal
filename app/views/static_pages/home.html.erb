@@ -4,17 +4,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> | ClassPortal</title>
+    <title><%= yield(:title) %> | WolfPortal</title>
   </head>
   <body>
 
 
     <div class="center jumbotron">
-      <h1>Class Portal</h1>
+      <h1>Wolf Portal</h1>
       <h2>
-        This is the home page for the ClassPortal application.
+        This is the home page for the WolfPortal application.
       </h2>
   <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
+  
 </div>
 </body>
 </html>

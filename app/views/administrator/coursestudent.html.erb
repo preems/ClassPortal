@@ -5,7 +5,7 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th colspan="1"></th>
+    <th colspan="2"></th>
   </tr>
   </thead>
   <tbody>
@@ -14,6 +14,9 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= link_to 'Remove', {action: "coursestudentdelete",courseid:@course, studentid:user} %></td>
+        <td>
+          <%= link_to 'Grade', {action: 'coursestudentgrade', courseid:@course,studentid:user} %>
+        </td>
       </tr>
   <% end %>
   </tbody>
