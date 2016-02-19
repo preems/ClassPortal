@@ -11,7 +11,7 @@ class SessionController < ApplicationController
       elsif user.role == 'admin'
         redirect_to administrator_path
       elsif user.role == 'instructor'
-        redirect_to instructor_path
+        redirect_to mycourses_path
       else
         redirect_to  action: 'mycourse', controller: 'course'
       end
