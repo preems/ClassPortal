@@ -8,11 +8,16 @@
       <th>Desciption</th>
       <th>Status</th>
       <th>Grades</th>
+      <%if @role=="instructor"%>
       <th>Requests</th>
+<<<<<<< HEAD
 
       <% if @role=='instructor'   %>
       <th>Manage Students</th>
       <% end %>
+=======
+      <%end%>
+>>>>>>> 7b8ea61579cafa5b672e5c23578d717db3cd02ba
     </tr>
     </thead>
   <% @course.each do |course| %>
@@ -26,12 +31,12 @@
         <td><%= link_to 'Drop', {action: 'studentcoursedrop', id:course} %></td>
         <%elsif @role=="instructor"%>
         <td><%= link_to 'Post Grades', "#" %></td>
-        <%end%>
+
         <%if course.inactive==0%>
         <td><%= link_to 'Request Inactive', {controller: 'instructor', action: 'requestinactive', id:course} %></td>
         <%else%>
         <td><%=  'Already Requested' %></td>
-
+<%end%>
         <%end%>
         <% if @role=='instructor'   %>
             <td>
