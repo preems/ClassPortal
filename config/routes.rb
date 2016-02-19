@@ -57,7 +57,8 @@ Rails.application.routes.draw do
   get 'requests' => 'instructor#requests'
   get 'instructor/enroll/:user_id/:course_id'=> 'instructor#enroll'
 
-
+  #request inactive
+  get 'instructor/requestinactive/:id' => 'instructor#requestinactive'
   # Messages
   get 'message' => 'message#index'
   get 'message/chatwindow/:id' => 'message#chatwindow'

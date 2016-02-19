@@ -25,4 +25,13 @@ class InstructorController < ApplicationController
     Request.where(course_id:b,user_id:a).first.destroy
     redirect_to requests_path
   end
+
+
+  def requestinactive
+    @course= Course.find(params[:id])
+    #@course.inactive=1
+    @course.update_attribute(:inactive,1)
+
+    redirect_to mycourses_path
+  end
 end
