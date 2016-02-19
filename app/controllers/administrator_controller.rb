@@ -164,6 +164,8 @@ class AdministratorController < ApplicationController
   def coursestudent
     @course = Course.find(params[:id])
     @users = @course.users.where("role = ?", 'student')
+    current_user
+    @role=@current_user.role
   end
 
   def coursestudentadd

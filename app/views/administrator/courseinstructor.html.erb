@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
-<table>
+<table class="table table-striped table-bordered table-hover">
   <thead>
   <tr>
     <th>Name</th>
@@ -13,7 +13,11 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Remove', {action: "courseinstructordelete",courseid:@course, instructorid:user} %></td>
+        <td>
+          <% if @instructors.count>1 %>
+          <%= link_to 'Remove', {action: "courseinstructordelete",courseid:@course, instructorid:user} %>
+          <% end %>
+        </td>
       </tr>
   <% end %>
   </tbody>

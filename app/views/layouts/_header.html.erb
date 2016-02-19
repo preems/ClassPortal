@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-default">
   <div class="container">
 
     <nav>
@@ -27,10 +27,10 @@
         <% end%>
 
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle cwhite" style="color:white; background-color: #cc0000" data-toggle="dropdown">
               <%= @current_user.name %> <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu cwhite" style="background-color: #cc0000">
               <li><%= link_to "Profile", @current_user %></li>
               <li class="divider"></li>
               <li>

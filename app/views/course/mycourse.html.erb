@@ -10,9 +10,11 @@
       <th>Grades</th>
       <%if @role=="instructor"%>
       <th>Requests</th>
-      <%end%>
+      <th>Manage Students</th>
+      <% end %>
+
     </tr>
-    </thead
+    </thead>
   <% @course.each do |course| %>
     <div class="course">
       <tr>
@@ -31,6 +33,11 @@
         <td><%=  'Already Requested' %></td>
 <%end%>
         <%end%>
+        <% if @role=='instructor'   %>
+            <td>
+              <%= link_to 'Students', {action: 'coursestudent', controller: 'administrator', id:course}  %>
+            </td>
+        <% end %>
       </tr>
     </div>
   <% end %>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
-<table>
+<table class="table table-striped table-bordered table-hover">
   <thead>
   <tr>
     <th>Name</th>
@@ -22,7 +22,11 @@
   </tbody>
 </table>
 <br/>
-<%= link_to 'Back', controller: "administrator", action: "courselist", id:@course %>
+<% if @role=='admin' %>
+<%= link_to 'Back', controller: "administrator", action: "courselist" %>
+    <% else %>
+    <%= link_to 'Back', mycourses_path %>
+    <% end %>
 
 
 
