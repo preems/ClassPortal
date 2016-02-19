@@ -11,6 +11,7 @@ class CourseController < ApplicationController
   def mycourse
       current_user
       @course = @current_user.courses
+      @role=@current_user.role
   end
 
   def coursepage
