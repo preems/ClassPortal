@@ -4,7 +4,6 @@ class Course < ActiveRecord::Base
   validates :desc, :presence => true
   validates :startDate, :presence => true
   validates :endDate, :presence => true
-  validate :date_validation
   validates :status, inclusion: {in: %w(active inactive), message: "%{value} is not a valid  value, only active/inactive"}
   
   has_and_belongs_to_many :users

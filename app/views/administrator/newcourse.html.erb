@@ -1,6 +1,6 @@
 <%= form_for @course, :url =>  url_for(:action => @action),method: :post do |f| %>
-   <p id="notice"><b><%= notice %></b>b></p>p>
-   <p id="alert"><b><%= alert %></b>b></p>p>
+   <p id="notice"><b><%= notice %></b></p>
+   <p id="alert"><b><%= alert %></b></p>
 
     <% if @course.errors.any? %>
         <div id="error_explanation">
