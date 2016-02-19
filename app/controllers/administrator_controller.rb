@@ -60,8 +60,10 @@ class AdministratorController < ApplicationController
       flash[:notice]= "New Course created"
       redirect_to url_for( :action => :courselist)
     else
-      flash[:alert]="Failed to create Course"
-      redirect_to url_for( :action => :courselist)
+      msg = "Create Course failed: Errors: "
+      @course.errors.each { |attribute, message|  msg += (attribute.to_s + ": " + message + ".") }
+      flash[:alert]= msg
+      redirect_to url_for( :action => :newcourse)
     end
   end
 
