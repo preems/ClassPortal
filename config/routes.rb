@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   get 'session/new'
   root 'static_pages#home'
-  get 'help'    => 'static_pages#help'
+  get 'gotologin'    => 'static_pages#gotologin'
   get 'login' => 'session#new'
   post 'login' => 'session#create'
   delete 'logout' => 'session#destroy'
