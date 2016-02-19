@@ -1,6 +1,6 @@
 <body>
-  <%=@current_user.courses%>
-  <% if @pending %>
+
+  <% if @pending.count>0 %>
   <table>
   <% @pending.each do |c| %>
     <div class="course">
@@ -16,6 +16,6 @@
   <% end %>
   </table>
   <%else%>
-  <%= "No pending requests"%>
+  <%= "No pending requests."%>
   <% end%>
 </body>
