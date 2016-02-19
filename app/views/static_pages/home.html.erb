@@ -9,19 +9,30 @@
       a,a:visited{
         color:white;
       }
+      body{
+      background-image: url(assets/bg1.jpg); /*You will specify your image path here.*/
+
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat ;
+      background-attachment: fixed;
+      }
+      .jumbotron{
+        background-color:transparent
+}
     </style>
   </head>
   <body>
 
 
     <div class="center jumbotron">
-      <h1>Wolf Portal</h1>
-      <h2>
-        This is the home page for the WolfPortal application.
-      </h2>
-  <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary" %>
+    </br></br></br></br></br></br></br></br></br>
+      <h1 style="color:#FFFFFF">Wolf Portal</h1>
+        <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary" %>
   <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
-  
+
 </div>
 </body>
 </html>
