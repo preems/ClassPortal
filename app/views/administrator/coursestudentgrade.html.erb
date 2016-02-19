@@ -1,0 +1,11 @@
+<%= form_tag("",method: 'post') do %>
+    <div class="field">
+      <label for="">Enter the grade:</label><br>
+      <input class="form-control" type="text" name="grade1" id="message" value="<%= @grade %>" />
+    </div>
+    <div class="actions">
+      <input type="submit" name="commit" value="Save" class="btn btn-primary" />
+    </div>
+<% end %>
+<br/>
+<%= link_to 'Back', action: 'coursestudent', id:@courseid  %>

@@ -60,8 +60,10 @@ class AdministratorController < ApplicationController
       flash[:notice]= "New Course created"
       redirect_to url_for( :action => :courselist)
     else
-      flash[:alert]="Failed to create Course"
-      redirect_to url_for( :action => :courselist)
+      msg = "Create Course failed: Errors: "
+      @course.errors.each { |attribute, message|  msg += (attribute.to_s + ": " + message + ".") }
+      flash[:alert]= msg
+      redirect_to url_for( :action => :newcourse)
     end
   end
 
@@ -182,6 +184,35 @@ class AdministratorController < ApplicationController
     @user = User.find(params[:studentid])
     @course.users.delete(@user)
     redirect_to url_for( :action => :coursestudent, id: @course)
+  end
+
+  def coursestudentgrade
+    #fetch and show the grade
+    @courseid=params[:courseid]
+    g=Grade.where(course_id: params[:courseid], user_id:params[:studentid])
+    if (!g.empty?)
+      @grade =g.first.grade
+    else
+      @grade=""
+  end
+  end
+
+  def coursestudentgradeupdate
+    @courseid=params[:courseid]
+    @studentid = params[:studentid]
+
+    g=Grade.where(course_id: params[:courseid], user_id:params[:studentid]).first()
+    if (g.nil?)
+      grade=Grade.new
+      grade.course_id = params[:courseid]
+      grade.user_id = params[:studentid]
+      grade.grade=params[:grade1]
+      grade.save
+    else
+      g.update_attribute(:grade,params[:grade1])
+    end
+    redirect_to url_for(:action =>:coursestudent, id:params[:courseid])
+
   end
 
   def createstudent
