@@ -17,7 +17,7 @@
 
 
 
-<% if @role!="student" %>
+<% if @role!="student" && @course.status=='active' %>
 
     <%= form_tag("",method: 'post') do %>
         <div class="field">
