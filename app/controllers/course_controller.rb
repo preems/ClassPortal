@@ -10,8 +10,15 @@ class CourseController < ApplicationController
 
   def mycourse
       current_user
-      @course = @current_user.courses
+      @course = @current_user.courses.where(status:"active")
       @role=@current_user.role
+  end
+
+  def coursehistory
+    current_user
+    @course = @current_user.courses
+    @role=@current_user.role
+    render 'course/mycourse'
   end
 
   def coursepage

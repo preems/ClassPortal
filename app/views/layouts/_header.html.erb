@@ -8,7 +8,7 @@
         <% if @role=="student" %>
           <li> <%= link_to "Search", course_path%> </li>
           <li> <%= link_to "My Courses", mycourses_path%> </li>
-          <li> <%= link_to "Course History", mycourses_path%> </li>
+          <li> <%= link_to "Course History", {controller: "course", action:"coursehistory"} %> </li>
           <li> <%= link_to "Messages", message_path%> </li>
 
 
