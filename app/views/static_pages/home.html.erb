@@ -30,8 +30,11 @@
     <div class="center jumbotron">
     </br></br></br></br></br></br></br></br></br>
       <h1 style="color:#FFFFFF">Wolf Portal</h1>
+    </br></br></br>
+    <%if !logged_in? %>
         <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary" %>
   <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
+  <%end%>
 
 </div>
 </body>

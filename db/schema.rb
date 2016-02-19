@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160219000508) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "courses", force: :cascade do |t|
     t.string   "number"
     t.string   "title"
@@ -20,35 +23,18 @@ ActiveRecord::Schema.define(version: 20160219000508) do
     t.date     "startDate"
     t.date     "endDate"
     t.string   "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "notifications_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "inactive"
   end
-
-  add_index "courses", ["notifications_id"], name: "index_courses_on_notifications_id"
 
   create_table "courses_users", id: false, force: :cascade do |t|
     t.integer "course_id"
     t.integer "user_id"
-    t.string  "status"
-    t.string  "grade"
   end
 
-  add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id"
-  add_index "courses_users", ["user_id"], name: "index_courses_users_on_user_id"
-
-  create_table "enrollments", force: :cascade do |t|
-    t.integer  "course_id"
-    t.integer  "user_id"
-    t.string   "status"
-    t.string   "grade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id"
-  add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id"
+  add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id", using: :btree
+  add_index "courses_users", ["user_id"], name: "index_courses_users_on_user_id", using: :btree
 
   create_table "grades", force: :cascade do |t|
     t.integer  "course_id"
@@ -73,7 +59,7 @@ ActiveRecord::Schema.define(version: 20160219000508) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "notifications", ["course_id"], name: "index_notifications_on_course_id"
+  add_index "notifications", ["course_id"], name: "index_notifications_on_course_id", using: :btree
 
   create_table "requests", force: :cascade do |t|
     t.string   "status"
@@ -83,8 +69,8 @@ ActiveRecord::Schema.define(version: 20160219000508) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "requests", ["course_id"], name: "index_requests_on_course_id"
-  add_index "requests", ["user_id"], name: "index_requests_on_user_id"
+  add_index "requests", ["course_id"], name: "index_requests_on_course_id", using: :btree
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -95,4 +81,5 @@ ActiveRecord::Schema.define(version: 20160219000508) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "notifications", "courses"
 end
