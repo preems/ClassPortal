@@ -40,6 +40,9 @@
       <% @pending= Request.where(course_id: course, user_id:@current_user).first%>
       <%if @pending %>
       <td><%='Pending'%></td>
+
+      <%elsif  course.in?(@current_user.courses)%>
+      <td><%='Enrolled'%></td>
       <%else%>
       <td><%= link_to 'Enroll', {controller:'request', action: 'requestenroll', course_id: course, user_id: @current_user} %></td>
       <%end%>
