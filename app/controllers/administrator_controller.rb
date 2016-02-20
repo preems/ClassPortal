@@ -240,4 +240,10 @@ class AdministratorController < ApplicationController
     end
   end
 
+  def userhistory
+    @user=User.find(params[:id])
+    @courses=@user.courses
+
+  end
+
 end

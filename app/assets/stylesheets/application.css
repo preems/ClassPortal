@@ -61,3 +61,10 @@ a{
 .white {
     color:white;
 }
+
+#alert{
+    color:red;
+}
+#notice {
+    color:green;
+}

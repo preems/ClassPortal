@@ -10,24 +10,24 @@
 
         <% if logged_in? %>
         <% if @role=="student" %>
-          <li> <%= link_to "Search", course_path%> </li>
-          <li> <%= link_to "My Courses", mycourses_path%> </li>
-          <li> <%= link_to "Course History", {controller: "course", action:"coursehistory"} %> </li>
-          <li> <%= link_to "Messages", message_path%> </li>
+          <li> <%= link_to "Search", course_path,{'style'=>'color:white'}%> </li>
+          <li> <%= link_to "My Courses", mycourses_path,{'style'=>'color:white'}%> </li>
+          <li> <%= link_to "Course History", {controller: "course", action:"coursehistory"},{'style'=>'color:white'} %> </li>
+          <li> <%= link_to "Messages", message_path,{'style'=>'color:white'}%> </li>
 
 
         <% elsif @role=="admin" || @role=="superadmin"%>
           <li> <%= link_to "Manage Admins", administrator_path%> </li>
-          <li> <%= link_to "Manage Instructors", {controller: "administrator" ,action:"instructorlist"}%> </li>
-          <li> <%= link_to "Manage Students", {controller: "administrator" ,action:"studentlist"}%> </li>
-          <li> <%= link_to "Manage Courses", {controller: "administrator" ,action:"courselist"}%> </li>
-          <li> <%= link_to "Messages", message_path%> </li>
+          <li> <%= link_to "Manage Instructors", {controller: "administrator" ,action:"instructorlist"},{'style'=>'color:white'}%> </li>
+          <li> <%= link_to "Manage Students", {controller: "administrator" ,action:"studentlist"},{'style'=>'color:white'}%> </li>
+          <li> <%= link_to "Manage Courses", {controller: "administrator" ,action:"courselist"},{'style'=>'color:white'}%> </li>
+          <li> <%= link_to "Messages", message_path,{'style'=>'color:white'}%> </li>
 
 
         <% elsif @role=="instructor" %>
-          <li> <%= link_to "Enrollment requests", requests_path%> </li>
-          <li> <%= link_to "Courses", mycourses_path%> </li>
-          <li> <%= link_to "Messages", message_path%> </li>
+          <li> <%= link_to "Enrollment requests", requests_path,{'style'=>'color:white'}%> </li>
+          <li> <%= link_to "Courses", mycourses_path,{'style'=>'color:white'}%> </li>
+          <li> <%= link_to "Messages", message_path,{'style'=>'color:white'} %> </li>
         <% end%>
 
           <li class="dropdown">
@@ -44,7 +44,7 @@
           </li>
 
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Log in", login_path,{'style'=>'color:white'} %></li>
         <% end %>
       </ul>
     </nav>
