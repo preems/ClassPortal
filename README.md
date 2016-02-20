@@ -5,7 +5,7 @@ Aneesh Gupta(agupta27)
 Pooja Asher(pmasher)<br>
 
  - Ruby Version: 2.3 
- - Database Used: SQLite
+ - Database Used: PostgresSQL
 
 Deploy using Server URL: 
 
