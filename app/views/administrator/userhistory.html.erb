@@ -1,0 +1,32 @@
+
+<h1>History</h1>
+
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+<table class="table table-striped table-bordered table-hover">
+
+  <thead>
+  <tr>
+    <th>Number</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>StartDate</th>
+    <th>EndDate</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.number %></td>
+        <td><%= course.title %></td>
+        <td><%= course.desc %></td>
+        <td><%= course.startDate %></td>
+        <td><%= course.endDate %></td>
+        <td><%= course.status %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br/>
+<%= link_to 'Back', :back %>
