@@ -19,6 +19,8 @@
   <%= yield %>
 
 <br/><br/>
+<% if @course %>
+
 <table class="table table-striped table-bordered table-hover">
   <thead>
   <tr>
@@ -29,7 +31,6 @@
     <th></th>
   </tr>
   </thead>
-  <% if @course %>
 <% @course.each do |course| %>
   <div class="course">
     <tr>
@@ -50,7 +51,7 @@
     </tr>
   </div>
 <% end %>
-<%end%>
 </table>
+<%end%>
 
 </body>
