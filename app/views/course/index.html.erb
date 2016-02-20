@@ -29,6 +29,7 @@
     <th></th>
   </tr>
   </thead>
+  <% if @course %>
 <% @course.each do |course| %>
   <div class="course">
     <tr>
@@ -49,7 +50,7 @@
     </tr>
   </div>
 <% end %>
-
+<%end%>
 </table>
 
 </body>
