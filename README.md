@@ -37,13 +37,15 @@ Deploy using Server URL:
 <b> Testing </b>
 
 -Test Cases added to test Course Model - test/models/course_test.rb
+
 -Ran various Test cases for the controllers
 
-Testing of Course Model
-==========================
+
+ Testing of Course Model
+ ==========================
 
 $ bundle exec rake test:models
-# Running:
+Running:
 
 .........
 
@@ -57,7 +59,7 @@ Finished in 0.288275s, 31.2202 runs/s, 31.2202 assertions/s.
 
  $ bundle exec rake test:controllers
 
-# Running:
+Running:
 
 ......
 
