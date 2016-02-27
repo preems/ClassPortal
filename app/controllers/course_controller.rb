@@ -4,7 +4,7 @@ class CourseController < ApplicationController
     if params[:search]
       @course = Course.search(params[:search])
     else
-      @course = nil
+      @course = Course.search("")
     end
   end
 
