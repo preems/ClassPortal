@@ -34,3 +34,33 @@ Deploy using Server URL:
  - They can view their courses and accept/decline enrollment requests
  - They can additionally message instructors and students.
 
+<b> Testing </b>
+
+-Test Cases added to test Course Model - test/models/course_test.rb
+-Ran various Test cases for the controllers
+
+Testing of Course Model
+==========================
+
+$ bundle exec rake test:models
+# Running:
+
+.........
+
+Finished in 0.288275s, 31.2202 runs/s, 31.2202 assertions/s.
+
+9 runs, 9 assertions, 0 failures, 0 errors, 0 skips
+ 
+
+ Testing of controllers (static/users/course)
+ ==========================
+
+ $ bundle exec rake test:controllers
+
+# Running:
+
+......
+
+Finished in 0.719469s, 8.3395 runs/s, 11.1193 assertions/s.
+
+6 runs, 8 assertions, 0 failures, 0 errors, 0 skips
