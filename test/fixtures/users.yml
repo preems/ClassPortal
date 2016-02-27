@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
-  password: MyString
-  role: MyString
+  name: aaa
+  email: ane@gmail.com
+  password_digest: 12345678
+  role: student
 
 two:
-  name: MyString
-  email: MyString
-  password: MyString
-  role: MyString
+  name: pree
+  email: pr@gmail.com
+  password_digest: 12345678
+  role: instructor
+
+three:
+  name: abc
+  email: abc@gmail.com
+  password_digest: 12345678
+  role: admin
