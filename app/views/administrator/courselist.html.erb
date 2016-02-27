@@ -20,7 +20,11 @@
   </thead>
   <tbody>
   <% @courses.each do |course| %>
-      <tr>
+      <% if course.users.select{ |u| u.role=="instructor" }.count==0 %>
+        <tr class="danger">
+      <% else %>
+        <tr>
+      <% end %>
         <td><%= link_to course.number,{controller: "course", action:"coursepage",id:course} %></td>
         <td><%= course.title %></td>
         <td><%= course.desc %></td>
@@ -35,5 +39,12 @@
   <% end %>
   </tbody>
 </table>
-<br/>
+
 <%= link_to 'New Course', controller: "administrator", action: "newcourse" %>
+  <br/> <br/>
+  <p>
+    Click on the Course Number to visit course page and add materials.
+  </p>
+  <p>
+    Highlighted Course does not have a instructor.
+  </p>
