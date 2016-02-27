@@ -22,7 +22,7 @@
   </tbody>
 </table>
 <br/>
-<% if @role=='admin' %>
+<% if @role=='admin' || @role=='superadmin' %>
 <%= link_to 'Back', controller: "administrator", action: "courselist" %>
     <% else %>
     <%= link_to 'Back', mycourses_path %>
